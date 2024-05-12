@@ -30,14 +30,15 @@ public class UserAgentController {
     @GetMapping("/**")
     public String getInfo(HttpServletRequest request, ModelMap modelMap) {
         var userAgentHeader = request.getHeader("User-Agent");
+        var ipAddress = request.getHeader("X-Real-IP");
         var client = parser.parse(userAgentHeader);
         var userAgentInfo = UserAgentInfo.builder()
                 .userAgentHeader(userAgentHeader)
                 .userAgent(client.userAgent != null ? client.userAgent.family : null)
                 .os(client.os != null ? client.os.family : null)
                 .device(client.device != null ? client.device.family : null)
-                .ipAddress(request.getRemoteAddr())
-                .location(resolveLocation(request.getRemoteAddr()))
+                .ipAddress(ipAddress)
+                .location(resolveLocation(ipAddress))
                 .build();
         userAgentInfoRepository.save(userAgentInfo);
         modelMap.addAttribute("dataModel", userAgentInfo);
