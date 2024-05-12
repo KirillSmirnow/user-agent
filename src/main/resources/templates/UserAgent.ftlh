@@ -32,6 +32,10 @@
         <td>IP Address</td>
         <td>${dataModel.ipAddress}</td>
     </tr>
+    <tr>
+        <td>Location</td>
+        <td>${dataModel.location!}</td>
+    </tr>
 </table>
 </body>
 </html>

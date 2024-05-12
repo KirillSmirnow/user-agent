@@ -16,4 +16,5 @@ dependencies {
     implementation("org.springframework.boot:spring-boot-starter-data-mongodb")
 
     implementation("com.github.ua-parser:uap-java:1.6.1")
+    implementation("com.maxmind.geoip2:geoip2:4.2.0")
 }
