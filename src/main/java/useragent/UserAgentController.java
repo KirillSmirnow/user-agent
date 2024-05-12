@@ -1,13 +1,17 @@
 package useragent;
 
 import jakarta.servlet.http.HttpServletRequest;
+import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.GetMapping;
 import ua_parser.Parser;
 
 @Controller
+@RequiredArgsConstructor
 public class UserAgentController {
+
+    private final UserAgentInfoRepository userAgentInfoRepository;
 
     private final Parser parser = new Parser();
 
@@ -22,6 +26,7 @@ public class UserAgentController {
                 .device(client.device != null ? client.device.family : null)
                 .ipAddress(request.getRemoteAddr())
                 .build();
+        userAgentInfoRepository.save(userAgentInfo);
         modelMap.addAttribute("dataModel", userAgentInfo);
         return "UserAgent";
     }

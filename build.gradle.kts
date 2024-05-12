@@ -13,6 +13,7 @@ repositories {
 dependencies {
     implementation("org.springframework.boot:spring-boot-starter-web")
     implementation("org.springframework.boot:spring-boot-starter-freemarker")
+    implementation("org.springframework.boot:spring-boot-starter-data-mongodb")
 
     implementation("com.github.ua-parser:uap-java:1.6.1")
 }
