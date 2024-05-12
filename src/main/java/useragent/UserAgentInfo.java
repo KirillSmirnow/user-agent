@@ -6,6 +6,7 @@ import lombok.Data;
 @Data
 @Builder
 public class UserAgentInfo {
+    private final String userAgentHeader;
     private final String userAgent;
     private final String os;
     private final String device;

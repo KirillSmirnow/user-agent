@@ -13,16 +13,20 @@
 <body>
 <table>
     <tr>
+        <td>User Agent Header</td>
+        <td>${dataModel.userAgentHeader!}</td>
+    </tr>
+    <tr>
         <td>User Agent</td>
-        <td>${dataModel.userAgent}</td>
+        <td>${dataModel.userAgent!}</td>
     </tr>
     <tr>
         <td>OS</td>
-        <td>${dataModel.os}</td>
+        <td>${dataModel.os!}</td>
     </tr>
     <tr>
         <td>Device</td>
-        <td>${dataModel.device}</td>
+        <td>${dataModel.device!}</td>
     </tr>
     <tr>
         <td>IP Address</td>

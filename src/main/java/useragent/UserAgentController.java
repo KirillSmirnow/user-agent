@@ -16,9 +16,10 @@ public class UserAgentController {
         var userAgentHeader = request.getHeader("User-Agent");
         var client = parser.parse(userAgentHeader);
         var userAgentInfo = UserAgentInfo.builder()
-                .userAgent(client.userAgent.family)
-                .os(client.os.family)
-                .device(client.device.family)
+                .userAgentHeader(userAgentHeader)
+                .userAgent(client.userAgent != null ? client.userAgent.family : null)
+                .os(client.os != null ? client.os.family : null)
+                .device(client.device != null ? client.device.family : null)
                 .ipAddress(request.getRemoteAddr())
                 .build();
         modelMap.addAttribute("dataModel", userAgentInfo);
